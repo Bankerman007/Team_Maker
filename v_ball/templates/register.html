@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+      
+
+    <Div>
+        {% if submitted %}
+        You will be placed on a team!
+
+        {% else %}
+
+            <form action= "" method ='POST'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type= "submit" value= "Submit">
+
+            </form> 
+
+        {% endif %}
+    </Div>  
+
+</body>
+
+{% endblock %}
+

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- <h1>
+
+        RED TEAM    &nbsp;&nbsp;    BLUE TEAM   &nbsp;&nbsp;    GREEN TEAM   &nbsp;&nbsp;   BLACK TEAM
+
+</h1> -->
+
+
+<body font-size:100%;> 
+<table style="border-spacing:15px;">
+        <tr>
+                {% for t in teams %}
+                <th>
+                <h1>
+                        {{ t.name }}
+                </h1>
+                </th>
+                {% endfor %}
+                <!-- <th><h1>RED TEAM</h1></th><th><h1>BLUE TEAM</h1></th><th><h1>GREEN TEAM</h1></th><th><h1>BLACK TEAM</h1></th> -->
+        </tr>
+        <tr>
+                {% for t in teams %}
+                        <td style="vertical-align: top;">
+                                {% for p in t.players %}
+                                        {{ p.player_name }}
+                                        <br/>
+                                {% endfor %}
+                        </td>
+                {% endfor %}
+        </tr>
+</table>
+<!-- <div style="float:left;">
+
+</div>
+<div style="float:left; margin-left:150px;">
+
+<br/>
+Nicki
+<br/>
+Calvin
+</div> -->
+
+</body>
+
+
+        
+{% endblock %}
+
