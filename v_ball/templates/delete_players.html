@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+<body>
+    
+
+<table>
+    
+    {% for p in players %}
+                    
+        {{ p.player_name }}
+        <input type="checkbox">
+            <br/>
+    {% endfor %}
+
+</table>
+                
+
+</body>
+
+
+
+{% endblock %}

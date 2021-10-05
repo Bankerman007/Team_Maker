@@ -32,3 +32,7 @@ def register(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'register.html', {'form': form, 'submitted': submitted})
+
+def delete_players(request):
+    players = Player.objects.all()
+    return render(request, 'delete_players.html', {'players': players})
