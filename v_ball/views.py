@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render # render_to_response
-from .forms import PlayerForm
+from .forms import Delete, PlayerForm
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from .models import Team
@@ -34,5 +34,16 @@ def register(request):
     return render(request, 'register.html', {'form': form, 'submitted': submitted})
 
 def delete_players(request):
-    players = Player.objects.all()
-    return render(request, 'delete_players.html', {'players': players})
+    submitted = False
+    if request.method == "POST":
+        form = Delete(request.POST)
+        if form.is_valid():
+            form.delete()
+            return HttpResponseRedirect('/success')
+        
+    else:
+        form = Delete    
+        if 'submitted' in request.GET:
+            submitted = True
+
+    return render(request, 'delete_players.html', {'form' : form,'submitted': submitted})

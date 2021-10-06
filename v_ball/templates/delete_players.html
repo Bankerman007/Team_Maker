@@ -7,12 +7,21 @@
 
 <table>
     
-    {% for p in players %}
-                    
-        {{ p.player_name }}
-        <input type="checkbox">
-            <br/>
-    {% endfor %}
+   
+
+    
+
+        <form action= "" method ='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type= "submit" value= "Submit">
+
+        </form> 
+
+    
+    
+    
+
 
 </table>
                 

@@ -20,5 +20,11 @@ class TeamForm(ModelForm):
         team_name= forms.CharField(max_length=30)
         total_points= forms.IntegerField()
 
+class Delete(ModelForm):
+    class Meta:
+        model = Player
+        fields = ['player_name',]
+        #player_name = forms.CharField(max_length=30)
+        player_name = forms.ModelMultipleChoiceField(queryset=Player.objects.all(),widget=forms.CheckboxSelectMultiple)
 
     
