@@ -1,1 +1,1 @@
-web: gunicorn team_creator.wsgi
+web: team_creator.wsgi
